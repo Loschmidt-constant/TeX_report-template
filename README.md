@@ -21,4 +21,4 @@ texファイルへ読み込みは，プリアンブル中で`\usepackage{report_
 
 
 ## 3. 備考
-- sectionについては四角囲み，subsectionについては()囲みにしてある(`example\compile_example.pdf`参照)
+- sectionについては四角囲み，subsectionについては()囲みにしてある(`\example\compile_example.pdf`参照)
