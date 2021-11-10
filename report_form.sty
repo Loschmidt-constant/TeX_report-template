@@ -1,0 +1,148 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% usepackage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
+\usepackage[dvipdfmx,hidelinks]{hyperref}%内部リンクの作成
+\usepackage{pxjahyper}%pdfの日本語しおりの文字化けを防ぐ
+\usepackage{amsmath,amssymb,bm,geometry,ascmac,fancyhdr,fancybox,multicol,multirow,chngpage}
+\usepackage{lipsum,here,comment,otf,enumerate,url,latexsym,times,etoolbox,bigstrut}
+\usepackage{mathrsfs} %花文字での出力
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% set section enviroment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\figcaption}[1]{\def\@captype{figure}\caption{#1}}
+\newcommand{\tblcaption}[1]{\def\@captype{table}\caption{#1}}
+\renewcommand{\thesection}{\fbox{\arabic{section}}}
+\renewcommand{\thesubsection}{({\arabic{subsection}})}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% macro
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%あると便利なマクロ
+\def\qed{\hfill $\Box$}                                                 %証明完了
+\newcommand{\ie}{{\rm i.e.\ }}                                          %すなわち
+\newcommand{\st}{{\rm s.t.\ }}                                          %以下を満たす
+\def\diff#1#2{\displaystyle\frac{\partial #1}{\partial #2}}             %一階偏微分
+\def\diff2#1#2{\displaystyle\frac{\partial^{2} #1}{\partial #2 ^{2}}}   %二階偏微分
+\newcommand{\avr}[1]{\left\langle{#1}\right\rangle}                     %ブラケット記号<>
+\renewcommand{\L}{\mathcal{L}}                                          %有界線形作用素全体
+%よく使う記号
+\newcommand{\N}{\mathbb{N}}                                             %自然数全体
+\newcommand{\Z}{\mathbb{Z}}                                             %整数全体
+\newcommand{\Q}{\mathbb{Q}}                                             %有理数全体
+\newcommand{\R}{\mathbb{R}}                                             %実数全体
+\newcommand{\C}{\mathbb{C}}                                             %複素数全体
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}                         %絶対値
+\newcommand{\norm}[1]{\left\|#1\right\|}                                %ノルム
+\renewcommand{\le}{\leqslant}                                           %less than (<=)
+\renewcommand{\ge}{\geqslant}                                           %greater than (>=)
+%定理環境
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{dfn}[prop]{定義}
+\newtheorem{thm}[prop]{定理} 
+\newtheorem{lem}[prop]{補題}
+\newtheorem{cor}[prop]{系}
+\newtheorem{exam}[prop]{例}
+\newtheorem{rem}[prop]{注意}
+\newtheorem{claim}{主張}
+\newtheorem{ackn}{\bf{Acknowledgment}} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% set author & date
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\affiliation#1{\gdef\@affiliation{#1}}\affiliation{}%
+\def\stunum#1{\gdef\@stunum{#1}}\stunum{}%
+\def\author#1{\gdef\@author{#1}}\author{}%
+\def\date#1{\gdef\@date{#1}}\date{}%
+\def\subject#1{\gdef\@subject{#1}}\subject{}%
+\def\BANGOU#1{\gdef\@BANGOU{#1}}\BANGOU{}%
+\def\submission#1{\gdef\@submission{#1}}\submission{}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% set margin
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\geometry{paperwidth=210truemm,paperheight=297truemm,bindingoffset=0truemm,columnsep=5truemm,left=15truemm,right=20truemm,top=12truemm,bottom=20.truemm,foot=0truemm,headsep=30.truemm,includehead,includefoot}
+\renewcommand{\normalsize}{\@setfontsize\normalsize{10.5}{15.0}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% set header & footer
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\headerfont}{
+	\fontsize{13}{14}\selectfont
+}
+\newcommand{\pagefont}{
+	\fontsize{9.91}{14}\selectfont
+}
+%header and footer of first page
+\def\ps@firstpage{
+	\let\@mkboth\@gobbletwo
+	\def\@evenhead{
+		\headerfont
+		\begin{tabular}{@{\hskip-0.0truemm}l}
+			\hbox to\textwidth{{\@subject}　　{\@submission}{\@BANGOU}\hfill\@author (\@stunum)}\\[-0.75zw]
+			\underline{
+				\hbox to\textwidth{}
+			}\\[1.0zw]
+		    
+		    \hbox {\huge \ {\@subject}　{\@submission}{\@BANGOU}}\\[.5zw]
+		    \scalebox{0.92}{
+		        \begingroup
+                \renewcommand{\arraystretch}{1.2}
+                \begin{adjustwidth}{-1in}{-1in}\resizebox{1.1\textwidth}{!}{ %サイズ調整開始
+	        	\begin{tabular}{|c|c|c|c|}\hline
+                    \large 所属：\@affiliation & \large 学修番号：\@stunum & \large 氏名：\@author & \large 提出日：\@date \\ \hline
+                \end{tabular}
+                }\end{adjustwidth} %サイズ調整終わり
+
+                \endgroup
+            }
+		\end{tabular}
+		\hfill
+	}
+	\let\@oddhead\@evenhead
+	\def\@evenfoot{
+		\headerfont
+		
+		\begin{tabular}{@{\hskip-0.0truemm}l}
+			\\
+			\hbox to\textwidth{
+				\hfil\thepage\hfil
+			}
+		\end{tabular}
+		\hfill
+	}
+	\let\@oddfoot\@evenfoot
+}
+%header and footer of other pages
+\def\ps@otherpage{
+	\let\@mkboth\@gobbletwo
+    \let\@oddfoot\@evenfoot
+	\def\@evenhead{
+		\headerfont
+		\begin{tabular}{@{\hskip-0.0truemm}l}
+			\hbox to\textwidth{{\@subject}　　{\@submission}{\@BANGOU}\hfill\@author (\@stunum)}\\[-0.75zw]
+			\underline{
+				\hbox to\textwidth{}
+			}
+		\end{tabular}
+	}
+	\let\@oddhead\@evenhead
+	\def\@evenfoot{
+		\headerfont
+		\begin{tabular}{@{\hskip-0.0truemm}l}
+			\\
+			\hbox to\textwidth{
+				\hfil\thepage\hfil
+			}
+		\end{tabular}
+	}
+	\let\@oddfoot\@evenfoot
+}
+%set body of the second and subsequent pages
+\newlength\newtop
+\setlength{\newtop}{20.truemm}
+\patchcmd\@outputpage{\global \@colht \textheight}{
+\global\textheight=\dimexpr\textheight+\newtop
+\global\headsep=\dimexpr\headsep-\newtop
+\global\@colht\textheight
+\global\newtop\z@
+}{}{\err}
+\pagestyle{otherpage}
+\thispagestyle{firstpage}
