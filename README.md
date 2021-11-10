@@ -26,8 +26,10 @@ texファイルへ読み込みは，プリアンブル中で`\usepackage{report_
 - sectionについては四角囲み，subsectionについては( )囲みにしています( [\example\compile_example.pdf](https://github.com/Loschmidt-constant/TeX_report-template/tree/main/example/compile_example.pdf) 参照)．
 - 私が良く使うマクロを入れたままにしております( [\report_form.sty](https://github.com/Loschmidt-constant/TeX_report-template/blob/main/report_form.sty) 内の"macro"の部分を参照)．適宜，追加・削除などを行ってください．
 
-## 4.参考文献
+***
+### 参考資料  
+[1] 奥村晴彦, 黒木裕介 : [LATEX2ε美文書作成入門（改訂第8版）](https://amzn.to/3F1WpcB) , 技術評論社 (2020).
 
+[2] TeXマクロメモ :  https://www.aise.ics.saitama-u.ac.jp/~gotoh/TexMacroMemo.html
 
-
-
+[3] クラスファイルを作ろう(5) : http://abenori.blogspot.com/2019/12/latex-class-5.html
