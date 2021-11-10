@@ -1,6 +1,8 @@
 # TeX用レポートテンプレート
 
-report_form.sty は，普段私が講義の提出レポートに使っているレポートテンプレートに関するスタイルファイルです．A4サイズのレポート作成用に作ってあります．
+report_form.sty は，普段私が講義の提出レポートに使っているレポートテンプレートに関するスタイルファイルです．
+
+A4サイズのレポート作成用に作ってあります．
 
 ## 1. 使い方
 
@@ -21,6 +23,11 @@ texファイルへ読み込みは，プリアンブル中で`\usepackage{report_
 
 
 ## 3. 備考
-- sectionについては四角囲み，subsectionについては()囲みにしてある([\example\compile_example.pdf](https://github.com/Loschmidt-constant/TeX_report-template/tree/main/example/compile_example.pdf)参照)
+- sectionについては四角囲み，subsectionについては( )囲みにしています( [\example\compile_example.pdf](https://github.com/Loschmidt-constant/TeX_report-template/tree/main/example/compile_example.pdf) 参照)．
+- 私が良く使うマクロを入れたままにしております( [\report_form.sty](https://github.com/Loschmidt-constant/TeX_report-template/blob/main/report_form.sty) 内の"macro"の部分を参照)．適宜，追加・削除などを行ってください．
+
+## 4.参考文献
+
+
 
 
