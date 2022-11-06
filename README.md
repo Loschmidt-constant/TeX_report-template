@@ -25,6 +25,7 @@ texファイルへ読み込みは，プリアンブル中で`\usepackage{report_
 
 
 ## 3. 備考
+- 特に，overleafで使う場合ですが，コンパイラは "LaTeX" を選んでください．LaTeX以外でコンパイルした場合，上手く通りません．
 - sectionについては四角囲み，subsectionについては( )囲みにしています( [\example\compile_example.pdf](https://github.com/Loschmidt-constant/TeX_report-template/tree/main/example/compile_example.pdf) 参照)．
 - 定理環境については，theoremstyleをdefinitionに設定し，すべて日本語表示としてあります．（変更したい人は各自調整してください．）
 - 私が良く使うマクロを入れたままにしております( [\report_form.sty](https://github.com/Loschmidt-constant/TeX_report-template/blob/main/report_form.sty) 内の"macro"の部分を参照)．適宜，追加・削除などを行ってください．
