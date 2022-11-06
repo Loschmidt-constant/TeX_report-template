@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%コンパイラは"LaTeX"を選ぶこと！%%%%%
+%%%  コンパイラは"LaTeX"を選ぶこと！ %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[10.5pt,a4paper,dvipdfmx]{jarticle}
 \usepackage{report_form}
@@ -16,7 +16,23 @@
 \date{\today}                         %%日付
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+
+\section{概要}
+\subsection{小項目}
+\lipsum[30]
+
+\newpage
+
 \section{}
-\subsection{}
-\lipsum[20]
+\begin{dfn}[abc]
+    \lipsum[10]
+\end{dfn}
+
+\begin{prop}
+    \lipsum[25]
+\end{prop}
+\begin{proof}
+    \lipsum[15]
+\end{proof}
+
 \end{document}
