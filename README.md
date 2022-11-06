@@ -4,6 +4,8 @@ report_form.sty は，普段私が講義の提出レポートに使っている�
 
 A4サイズのレポート作成用に作ってあります．
 
+（なお，当方 overleaf 環境下でしか使用確認ができておりません．あしからず．）
+
 ## 1. 使い方
 
 texファイルへ読み込みは，プリアンブル中で`\usepackage{report_form}`を宣言すればOKです．
@@ -24,6 +26,7 @@ texファイルへ読み込みは，プリアンブル中で`\usepackage{report_
 
 ## 3. 備考
 - sectionについては四角囲み，subsectionについては( )囲みにしています( [\example\compile_example.pdf](https://github.com/Loschmidt-constant/TeX_report-template/tree/main/example/compile_example.pdf) 参照)．
+- 定理環境については，theoremstyleをdefinitionに設定し，すべて日本語表示としてあります．（変更したい人は各自調整してください．）
 - 私が良く使うマクロを入れたままにしております( [\report_form.sty](https://github.com/Loschmidt-constant/TeX_report-template/blob/main/report_form.sty) 内の"macro"の部分を参照)．適宜，追加・削除などを行ってください．
 
 ***
