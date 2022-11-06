@@ -2,11 +2,12 @@
 % usepackage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[utf8]{inputenc}
-\usepackage[dvipdfmx,hidelinks]{hyperref}%内部リンクの作成
-\usepackage{pxjahyper}%pdfの日本語しおりの文字化けを防ぐ
-\usepackage{amsmath,amssymb,bm,geometry,ascmac,fancyhdr,fancybox,multicol,multirow,chngpage}
-\usepackage{lipsum,here,comment,otf,enumerate,url,latexsym,times,etoolbox,bigstrut}
-\usepackage{mathrsfs} %花文字での出力
+\usepackage[dvipdfmx,hidelinks]{hyperref} %内部リンクの作成
+\usepackage{pxjahyper} %pdfの日本語しおりの文字化けを防ぐ
+\usepackage{amsmath,amssymb,amsthm,amsrefs} %AMS-LaTeXパッケージ
+\usepackage{lipsum,here,comment,otf,enumerate,url,latexsym,times,etoolbox,bigstrut,bm,geometry,ascmac,fancyhdr,fancybox,multicol,multirow,chngpage,verbatim}
+\usepackage{physics} %各種数学記号のパッケージ
+\usepackage{mathrsfs} %筆記体の出力
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % set section enviroment
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -19,32 +20,34 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %あると便利なマクロ
 \def\qed{\hfill $\Box$}                                                 %証明完了
+\newcommand{\avr}[1]{\expval{#1}}                                       %ブラケット記号 <>
+\renewcommand{\laplacian}{\Delta}                                       %ラプラシアン記号 △
 \newcommand{\ie}{{\rm i.e.\ }}                                          %すなわち
 \newcommand{\st}{{\rm s.t.\ }}                                          %以下を満たす
-\def\diff#1#2{\displaystyle\frac{\partial #1}{\partial #2}}             %一階偏微分
-\def\diff2#1#2{\displaystyle\frac{\partial^{2} #1}{\partial #2 ^{2}}}   %二階偏微分
-\newcommand{\avr}[1]{\left\langle{#1}\right\rangle}                     %ブラケット記号<>
-\renewcommand{\L}{\mathcal{L}}                                          %有界線形作用素全体
+\newcommand{\cf}{{\rm cf.\ }}                                           %次を参照せよ (次と比較せよ)
+\newcommand{\eg}{{\rm e.g.\ }}                                          %例として
+\renewcommand{\ae}{{\rm a.e.\ }}                                        %ほとんど至るところで
+
 %よく使う記号
 \newcommand{\N}{\mathbb{N}}                                             %自然数全体
 \newcommand{\Z}{\mathbb{Z}}                                             %整数全体
 \newcommand{\Q}{\mathbb{Q}}                                             %有理数全体
 \newcommand{\R}{\mathbb{R}}                                             %実数全体
 \newcommand{\C}{\mathbb{C}}                                             %複素数全体
-\newcommand{\abs}[1]{\left\lvert#1\right\rvert}                         %絶対値
-\newcommand{\norm}[1]{\left\|#1\right\|}                                %ノルム
 \renewcommand{\le}{\leqslant}                                           %less than (<=)
 \renewcommand{\ge}{\geqslant}                                           %greater than (>=)
+
 %定理環境
-\newtheorem{prop}{Proposition}[section]
-\newtheorem{dfn}[prop]{定義}
-\newtheorem{thm}[prop]{定理} 
-\newtheorem{lem}[prop]{補題}
-\newtheorem{cor}[prop]{系}
-\newtheorem{exam}[prop]{例}
-\newtheorem{rem}[prop]{注意}
-\newtheorem{claim}{主張}
-\newtheorem{ackn}{\bf{Acknowledgment}} 
+\theoremstyle{definition}
+    \newtheorem{prop}{命題}
+    \newtheorem{dfn}[prop]{定義}
+    \newtheorem{thm}[prop]{定理} 
+    \newtheorem{lem}[prop]{補題}
+    \newtheorem{cor}[prop]{系}
+    \newtheorem{ex}[prop]{例}
+    \newtheorem{rem}[prop]{注意}
+    \newtheorem*{claim}{\underbar{主張}}
+    \newtheorem{ackn}{\bf{Acknowledgment}} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % set author & date
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -60,7 +63,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \geometry{paperwidth=210truemm,paperheight=297truemm,bindingoffset=0truemm,columnsep=5truemm,left=15truemm,right=20truemm,top=12truemm,bottom=20.truemm,foot=0truemm,headsep=30.truemm,includehead,includefoot}
 \renewcommand{\normalsize}{\@setfontsize\normalsize{10.5}{15.0}}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % set header & footer
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -87,7 +89,7 @@
                 \renewcommand{\arraystretch}{1.2}
                 \begin{adjustwidth}{-1in}{-1in}\resizebox{1.1\textwidth}{!}{ %サイズ調整開始
 	        	\begin{tabular}{|c|c|c|c|}\hline
-                    \large 所属：\@affiliation & \large 学籍番号：\@stunum & \large 氏名：\@author & \large 提出日：\@date \\ \hline
+                    \large 所属：\@affiliation & \large 学修番号：\@stunum & \large 氏名：\@author & \large 提出日：\@date \\ \hline
                 \end{tabular}
                 }\end{adjustwidth} %サイズ調整終わり
 
